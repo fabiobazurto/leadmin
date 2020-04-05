@@ -16,4 +16,18 @@ RSpec.describe 'Creating a store', type: :feature do
     expect(page).to have_content('Big Show Store')    
     
   end
+
+  scenario 'invalid params' do
+    visit new_store_path
+    fill_in 'Nombre', with: 'Big Show Store'
+    fill_in 'Calle principal', with: 'Storm Avenue'
+    fill_in 'Número', with: 'dfdf88'
+    fill_in 'Código Postal', with: '34ee66'
+    select 'Ecuador', from: 'País', match: :first
+    select 'Guayaquil', from:'Ciudad', match: :first
+    click_on 'Grabar'
+    expect(page).to have_content('error')
+    
+  end
+  
 end
