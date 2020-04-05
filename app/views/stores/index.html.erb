@@ -1,0 +1,49 @@
+<div class="card">
+<h1><%= t '.title' %></h1>
+<p>
+    <%= link_to t('new'), new_store_path, class: 'btn btn-primary' %>
+</p>
+<div class="table-responsive">
+    <table class="table table-hover">
+	<thead>
+	    <tr>
+		<th><%=t 'activerecord.attributes.store.name'%></th>
+		<th><%=t 'activerecord.attributes.store.country'%></th>
+		<th><%=t 'activerecord.attributes.store.city'%></th>
+		<th><%=t 'activerecord.attributes.store.street'%></th>
+		<th><%=t 'activerecord.attributes.store.number'%></th>
+		<th><%=t 'activerecord.attributes.store.zipcode'%></th>
+
+		<th colspan="2"></th>
+	    </tr>
+	</thead>
+
+	<tbody>
+	    <%if !@stores.nil?%>
+		    <% @stores.each do |store| %>
+			<tr class="row-line row-store">
+			    <td><%= store.name %></td>
+			    <td><%= store.country.name %></td>
+			    <td><%= store.city.name %></td>
+			    <td><%= store.street %></td>
+			    <td><%= store.number %></td>
+			    <td><%= store.zipcode %></td>
+			    <td><%= link_to t(:edit), edit_store_path(store) %></td>
+			    <td><%= link_to t(:destroy), store, method: :delete, data: { confirm: t(:are_you_sure) } %></td>
+			</tr>
+		    <%end%>
+   		    <%if @stores.length==0%>
+			<%=render 'no_data' %>
+		    <% end %>
+	    <%else%>
+		    <%=render 'no_data' %>
+	    <%end%>
+	</tbody>
+    </table>
+    <%= will_paginate @stores %>
+</div>
+</div>
+
+<br>
+
+

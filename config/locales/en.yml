@@ -27,7 +27,10 @@
 #   'true': 'foo'
 #
 # To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# available at http://guides.rubyonrails.org/i18n.
 
 en:
-  hello: "Hello world"
+  new: 'New'
+  stores:
+    index:
+      title: "Stores"

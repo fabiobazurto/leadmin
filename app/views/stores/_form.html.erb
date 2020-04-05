@@ -1,0 +1,50 @@
+<%= form_with(model: store, local: true) do |form| %>
+  <% if store.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+      <ul>
+      <% store.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control', maxlength: 50 %>
+  </div>
+
+  <div class="field form-group">
+      <%= form.label :street %>
+      <%= form.text_field :street, class: 'form-control', maxlength: 50 %>
+  </div>
+
+  <div class="field form-group">
+      <%= form.label :number %>
+      <%= form.text_field :number, class: 'form-control numberText', maxlength: 6 %>
+  </div>
+
+  <div class="field form-group">
+      <%= form.label :zipcode %>
+      <%= form.number_field :zipcode, class: 'form-control numberText', maxlength: 6 %>
+  </div>
+
+  <div class="field form-group">
+      <%= form.label :country_id %>
+      <%= form.collection_select :country_id, @countries,:id,:name, {include_blank: true}, {class: 'form-control'} %>      
+  </div>
+  
+  
+  <div class="field form-group">
+      <%= form.label :city_id %>
+      <%= form.collection_select :city_id, @cities,:id,:name, {include_blank: true}, {:class=>'form-control'} %>
+      
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit t('.save'), :class=>'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,7 @@
+<h1><%=t('.title',name: store.name) %></h1>
+<div class="container">
+    <ul class="nav nav-pills">
+	<li role="presentation" class="<%=isActionActive("edit") %>"><%=link_to "General", edit_store_path(store) %></li>
+	<li role="presentation" class="<%=isActionActive("show")%>"><%=link_to "Productos", store %></li>
+</ul>
+</div>

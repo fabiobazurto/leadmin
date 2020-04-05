@@ -1,0 +1,45 @@
+body {
+   /* background: #BCBCBC; /*gris bajo*/
+    margin-top: 50px;
+}
+
+.main{
+    margin-top: 40px;
+}
+
+.page-wrapper {
+    padding: 0 0px;
+}
+
+.sidebar-menu {
+    background: $white;  /*gris fuerte*/
+}
+
+.sidebar-menu > li > a {
+    padding: 10px 30px;
+}
+
+
+@media (min-width: 768px) {
+    .wrapper {
+        padding-left: 240px;
+    }
+
+    .sidebar-menu {
+        width: 250px;
+        position: fixed;
+        top: 51px;
+        left: 250px;
+        margin-left: -250px;
+        height: 100%;
+    }
+
+    .sidebar-menu > li > a {
+        width: 250px;
+    }
+}
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+  color: $black;
+  background-color: $background-color;
+}
