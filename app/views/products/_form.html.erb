@@ -1,0 +1,45 @@
+<%= form_with(model: product, local: true) do |form| %>
+  <% if product.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% product.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name , class: 'form-control', maxlength: 50%>
+  </div>
+
+  <div class="field">
+      <%= form.label :color %>
+
+      <%= form.select :color, options_for_select(Product.allowed_colors.map {|k, v| [t('colors.'+k.to_s).capitalize, v]},product.color) , {include_blank: true} , {class:'form-control '} %>
+      
+  </div>
+
+  <div class="field">
+      <%= form.label :size %>
+      <%= form.select :size,options_for_select(Product.allowed_sizes.map {|k, v| [t('sizes.'+k.to_s).capitalize, v]}, product.size), {include_blank: true}, {class:'form-control select'} %>
+  </div>
+
+  <div class="field form-group">
+      <%= form.label :stock %>
+      <%= form.text_field :stock , class: 'form-control numberText', maxlength: 5%>
+  </div>
+
+  
+  <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, class: 'form-control allow_decimal', maxlength: 6 %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit t('.save'), :class=>'btn btn-primary' %>
+  </div>
+<% end %>

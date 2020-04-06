@@ -1,22 +1,35 @@
-<%= form_with(model: store, local: true) do |form| %>
-    <% if store.errors.any? %>
-	<div id="error_explanation">
-	    <h2><%= pluralize(store.errors.count, "error") %> prohibited this store from being saved:</h2>
 
-	    <ul>
-		<% store.errors.full_messages.each do |message| %>
-		    <li><%= message %></li>
-		<% end %>
-	    </ul>
-	</div>
-    <% end %>
+<div class="table-responsive">
+    <table class="table table-hover">
+	<thead>
+	    <tr>
+		<th><%=t 'activerecord.attributes.product.name'%></th>
+		<th><%=t 'activerecord.attributes.product.stock'%></th>
+		<th></th>
 
-    <div class="form-group field">
-	<%= form.label :name %>
-	<%= form.text_field :name, class: 'form-control', maxlength: 50 %>
-    </div>
+		<th colspan="2"></th>
+	    </tr>
+	</thead>
 
-    <div class="actions">
-	<%= form.submit t(:add), :class=>'btn btn-danger' %>
-    </div>
-<% end %>
+	<tbody>
+	    <%if !@store.nil?%>
+		<% @store.store_products.each do |product| %>
+		    <tr class="row-line row-store">
+			<td><%= product.product.name %></td>
+			<td><%= product.stock||0 %></td>
+			<td>
+
+			</td>
+		    </tr>
+		<%end%>
+ 
+	    <%else%>
+		<%=render 'products/no_data' %>
+	    <%end%>
+	</tbody>
+    </table>
+
+</div>
+
+
+

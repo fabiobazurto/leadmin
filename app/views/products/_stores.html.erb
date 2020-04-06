@@ -1,0 +1,62 @@
+<%= form_with(model: @store_product, url: assign_product_url(product), method: :post, local: true) do |form| %>
+    <% if @store_product.errors.any? %>
+	<div id="error_explanation">
+	    <h2><%= pluralize(@store_product.errors.count, "error") %> prohibited this store from being saved:</h2>
+
+	    <ul>
+		<% @store_product.errors.full_messages.each do |message| %>
+		    <li><%= message %></li>
+		<% end %>
+	    </ul>
+	</div>
+    <% end %>
+
+
+    <div class="alert alert-success" >
+    <%=t(:available_units,units: @available_units) %>
+</div>
+<div class="table-responsive">
+    <table class="table table-hover">
+	<thead>
+	    <tr>
+		<th><%=t 'activerecord.attributes.store.name'%></th>
+		<th><%=t 'activerecord.attributes.product.stock'%></th>
+		<th></th>
+
+		<th colspan="2"></th>
+	    </tr>
+	</thead>
+
+	<tbody>
+	    <%if !@stores.nil?%>
+		<% @stores.each do |store| %>
+		    <tr class="row-line row-store">
+			<td><%= store.name %></td>
+			<%=hidden_field_tag 'product[store][][did]', store.id %>			
+			<%=hidden_field_tag 'product[store][][product_id]', @product.id %>
+			<td><%= text_field_tag "product[store][][stock]",  store.stock||0, class:'form-control numberText', size:1, maxlength: 4%></td>
+			<td>
+
+			</td>
+		    </tr>
+		<%end%>
+   		<%if @stores.length==0%>
+		    <%=render 'stores/no_data' %>
+		<% end %>
+	    <%else%>
+		<%=render 'stores/no_data' %>
+	    <%end%>
+	</tbody>
+	<tr>
+	    <td></td>
+
+	    <td>
+		<%=form.submit t('.save'), class: 'btn btn-danger text-center' %>
+	    </td>
+	    <td></td>	    
+	</tr>
+    </table>
+
+    </div>
+<%end%>   
+

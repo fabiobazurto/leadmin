@@ -2,6 +2,11 @@
 require 'rails_helper'
  
 RSpec.describe 'Creating a store', type: :feature do
+
+  before(:all) do
+    @store1 = build(:store)
+  end
+
   scenario 'valid params' do
     visit new_store_path
     fill_in 'Nombre', with: 'Big Show Store'

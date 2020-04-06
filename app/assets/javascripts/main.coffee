@@ -14,4 +14,9 @@ $(document).on "turbolinks:load", ->
       event.preventDefault()
       #stop character from entering input
       return
-  
+  $('.allow_decimal').on 'input', (evt) ->
+    self = $(this)
+    self.val self.val().replace(/[^0-9\.]/g, '')
+    if (evt.which != 46 or self.val().indexOf('.') != -1) and (evt.which < 48 or evt.which > 57)
+      evt.preventDefault()
+      return

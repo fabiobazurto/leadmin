@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_222047) do
+ActiveRecord::Schema.define(version: 2020_04_06_145417) do
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 50
@@ -20,6 +20,24 @@ ActiveRecord::Schema.define(version: 2020_04_03_222047) do
 
   create_table "countries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 50, null: false
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 50, null: false
+    t.string "color", default: "-1", null: false
+    t.string "size", default: "-1", null: false
+    t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
+    t.integer "stock", default: 0, null: false
+  end
+
+  create_table "store_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "store_id"
+    t.bigint "product_id"
+    t.integer "stock", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["product_id"], name: "index_store_products_on_product_id"
+    t.index ["store_id"], name: "index_store_products_on_store_id"
   end
 
   create_table "stores", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -36,6 +54,8 @@ ActiveRecord::Schema.define(version: 2020_04_03_222047) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "store_products", "products"
+  add_foreign_key "store_products", "stores"
   add_foreign_key "stores", "cities"
   add_foreign_key "stores", "countries"
 end

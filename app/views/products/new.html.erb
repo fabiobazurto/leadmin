@@ -1,0 +1,6 @@
+<div class="card">
+    <h1><%= t( '.title',name: @product.name) %></h1>
+    <%= render 'form', product: @product %>
+</div>
+
+<%= link_to t(:back), products_path %>

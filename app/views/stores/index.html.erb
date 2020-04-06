@@ -29,7 +29,7 @@
 			    <td><%= store.number %></td>
 			    <td><%= store.zipcode %></td>
 			    <td><%= link_to t(:edit), edit_store_path(store) %></td>
-			    <td><%= link_to t(:destroy), store, method: :delete, data: { confirm: t(:are_you_sure) } %></td>
+			    <td><%= link_to t(:destroy), store, method: :delete, data: { confirm: t(:are_you_sure, name: store.name) } %></td>
 			</tr>
 		    <%end%>
    		    <%if @stores.length==0%>

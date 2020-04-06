@@ -34,7 +34,7 @@ es:
   edit: "Editar"
   destroy: "Eliminar"
   create: "Crear tienda"
-  are_you_sure: "¿Está seguro de borrar?"
+  are_you_sure: "¿Está seguro de borrar %{name}?"
   store_destroyed_success: "Tienda fue eliminada correctamente"
   store_updated_success: "Tienda actualizada correctamente"
   store_saved_success: "Tienda creada exitosamente"
@@ -42,6 +42,18 @@ es:
   back: "Regresar"
   title: "Asdfasdf: %{name}"
   add: "Agregar"
+  available_units: "Unidades disponibles: %{units}"
+  error_on_destroy: "Ha ocurrido un error al eliminar %{name}"
+  colors:
+    white: "blanco"
+    black: "negro"
+    green: "verde"
+    red: "rojo"
+    blue: "azul"
+  sizes:
+    small: "pequeño"
+    medium: "medio"
+    large: "grande"
   stores:
     index:
       title: "Tiendas"
@@ -56,6 +68,30 @@ es:
       title: "Editando tienda: %{name}"
     tabs:
       title: "Editando tienda: %{name}"
+  products:
+    index:
+      title: "Productos"
+    new:
+      title: "Nuevo producto"
+    form:
+      save: "Grabar"      
+    edit:
+      title: "Editando producto: %{name}"
+      save: "Actualizar"
+    show:
+      title: "Editando producto: %{name}"
+    stores:      
+      save: "Actualizar"
+    tabs:
+      title: "Editando producto: %{name}"
+    create:
+      success: "Producto %{name} creado exitosamente"
+    update:
+      success: "Producto %{name} actualizado exitosamente"
+    destroy:
+      success: "Producto %{name} eliminado exitosamente."
+    no_data:
+      no_data: "No hay datos de productos."     
   activerecord:
     models:
       city:
@@ -81,8 +117,18 @@ es:
         zipcode: "Código Postal"
         city_id: "Ciudad"
         country_id: "País"
+      product:
+        name: "Nombre"
+        color: "Color"
+        size: "Tamaño"
+        price: "Precio"
+        stock: "Unidades"	
     errors:
       models:
+        store_product:
+          attributes:
+            product:
+              product_stock_zero: "no tiene suficientes unidades para asignar."      
         store:
           attributes:
             city:
