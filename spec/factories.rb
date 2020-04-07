@@ -1,4 +1,8 @@
 FactoryBot.define do
+  factory :category do
+    name { Faker::IndustrySegments.industry }
+  end
+
   factory :store_product do
     store 
     product 

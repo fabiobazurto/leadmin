@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 
   has_many :store_products
   has_many :stores, through: :store_products
+  belongs_to :category
 
   before_destroy :check_for_assignments, prepend: true
   

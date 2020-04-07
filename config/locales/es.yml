@@ -91,7 +91,21 @@ es:
     destroy:
       success: "Producto %{name} eliminado exitosamente."
     no_data:
-      no_data: "No hay datos de productos."     
+      no_data: "No hay datos de productos."
+  categories:
+    index:
+      title: "Categorías"
+    new:
+      title: "Nueva categoría"
+    form:
+      save: "Grabar"      
+    edit:
+      title: "Editando categoría: %{name}"
+      save: "Actualizar"
+    show:
+      title: "Editando categoría: %{name}"
+    destroy:
+      success: "Categoría %{name} eliminado exitosamente."      
   activerecord:
     models:
       city:

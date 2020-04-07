@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_06_145417) do
+ActiveRecord::Schema.define(version: 2020_04_07_004742) do
+
+  create_table "categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", limit: 30, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", limit: 50
@@ -28,6 +34,8 @@ ActiveRecord::Schema.define(version: 2020_04_06_145417) do
     t.string "size", default: "-1", null: false
     t.decimal "price", precision: 8, scale: 2, default: "0.0", null: false
     t.integer "stock", default: 0, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_products_on_category_id"
   end
 
   create_table "store_products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -54,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_04_06_145417) do
   end
 
   add_foreign_key "cities", "countries"
+  add_foreign_key "products", "categories"
   add_foreign_key "store_products", "products"
   add_foreign_key "store_products", "stores"
   add_foreign_key "stores", "cities"
