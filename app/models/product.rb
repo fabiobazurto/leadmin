@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   validates :color, inclusion: { in: allowed_colors.keys, message: "%{value} is not a valid color." }
   validates :price, format: { with: /\A\d+(?:\.?\d*)?\z/ }, numericality: { greater_than: 0, less_than: 1000 }
   validates :stock, presence: true, numericality: { only_integer: true, greater_than: 0 }
-
+  validates :category, presence: true
 
 
 

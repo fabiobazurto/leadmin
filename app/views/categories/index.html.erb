@@ -1,7 +1,30 @@
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+	
+	<!-- Modal content-->
+	<div class="modal-content">
+            <div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div  class="modal-body">
+
+hola		
+            </div>
+            <div class="modal-footer">
+		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+	</div>
+	
+    </div>
+</div>
+
+
+
+
 <div class="card">
     <h1><%= t '.title' %></h1>
     <p>
-	<%= link_to t('new'), new_category_path, class: 'btn btn-primary' %>
+	<%= link_to t('new'), new_category_path, class: 'btn btn-primary', remote: true, data: {toggle: "modal", target:'#myModal'}%>
     </p>
 
 
@@ -18,7 +41,7 @@
 		<% @categories.each do |category| %>
 		    <tr>
 			<td><%= category.name %></td>
-			<td><%= link_to t(:edit), edit_category_path(category) %></td>
+			<td><%= link_to t(:edit), edit_category_path(category), remote: true, data: {toggle: "modal", target:'#myModal'}  %></td>
 			<td><%= link_to t(:destroy), category, method: :delete, data: { confirm: t(:are_you_sure, name:category.name) } %></td>
 		    </tr>
 		<% end %>

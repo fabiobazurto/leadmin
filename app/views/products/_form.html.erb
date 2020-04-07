@@ -13,7 +13,7 @@
 
   <div class="field form-group">
     <%= form.label :name %>
-    <%= form.text_field :name , class: 'form-control', maxlength: 50%>
+    <%= form.text_field :name , class: 'form-control', maxlength: 50, autofocus: true%>
   </div>
 
   <div class="field">
@@ -33,6 +33,11 @@
       <%= form.text_field :stock , class: 'form-control numberText', maxlength: 5%>
   </div>
 
+  <div class="field form-group">
+      <%= form.label :category_id %>
+      <%= form.collection_select :category_id, @categories,:id,:name, {include_blank: true}, {class: 'form-control'} %>      
+  </div>
+  
   
   <div class="field">
       <%= form.label :price %>

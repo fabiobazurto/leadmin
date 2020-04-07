@@ -10,7 +10,7 @@ RSpec.describe Category, type: :model do
   end
   
   it "is not valid without name" do
-    product = build(:categirt, name: nil)
+    product = build(:category, name: nil)
     expect(product).to_not be_valid    
   end
   

@@ -35,6 +35,7 @@ class ProductsController < ApplicationController
   # GET /products/new
   def new
     @product = Product.new
+    @categories = Category.all    
   end
 
   # GET /products/1/edit
@@ -45,7 +46,7 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
-
+    
     respond_to do |format|
       if @product.save
         format.html { redirect_to products_url, notice: t(:success,@product.name) }
@@ -99,11 +100,12 @@ class ProductsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_product
       @product = Product.find(params[:id])
+      @categories = Category.all
     end
 
     # Only allow a list of trusted parameters through.
     def product_params
-      params.require(:product).permit(:name, :color, :size, :price, :stock, :store => [
+      params.require(:product).permit(:name, :color, :size, :price,:category_id, :stock, :store => [
                                          :did, :product_id, :stock
                                       ])
     end

@@ -11,12 +11,10 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="field form-group">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control uppercase', autofocus: true %>
   </div>
+  <%= form.submit t('.save'), class: 'btn btn-danger btn-modal'%>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

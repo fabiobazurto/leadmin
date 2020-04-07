@@ -15,20 +15,27 @@ class CategoriesController < ApplicationController
   # GET /categories/new
   def new
     @category = Category.new
+
+    respond_to do |format|
+        format.js 
+    end
   end
 
   # GET /categories/1/edit
   def edit
+      respond_to do |format|
+        format.js 
+    end
   end
 
   # POST /categories
   # POST /categories.json
   def create
     @category = Category.new(category_params)
-
+    @category.name.upcase!
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to categories_url,notice: t('.success', name: @category.name)        }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }
@@ -42,7 +49,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        format.html { redirect_to  categories_url, notice: t('.success', name: @category.name) }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit }

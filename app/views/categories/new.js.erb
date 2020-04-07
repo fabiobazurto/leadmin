@@ -1,0 +1,4 @@
+$(".modal-body").html("<%= escape_javascript(render partial: 'categories/new',object: @category) %>");
+$(".modal-header").remove();
+$(".modal-footer").remove();
+$("#category_name").focus();

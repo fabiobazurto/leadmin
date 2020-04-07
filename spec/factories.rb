@@ -21,6 +21,7 @@ FactoryBot.define do
     size { [:small, :medium, :large].sample }
     price { Faker::Number.decimal(l_digits: 2)  }
     stock { Faker::Number.number(digits: 4)}
+    category 
   end
   
   #factory for valid stores

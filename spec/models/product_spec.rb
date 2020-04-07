@@ -14,7 +14,6 @@ RSpec.describe Product, type: :model do
     product = build(:product, name: nil)
     expect(product).to_not be_valid    
   end
-  
 
   it "is not valid without color"  do
     product = build(:product, color: nil)
@@ -56,6 +55,10 @@ RSpec.describe Product, type: :model do
     expect(product).to_not be_valid                        
   end
 
+  it "is invalid without category " do
+    product = build(:product, category: nil)
+    expect(product).to_not be_valid                        
+  end
   
 end
 

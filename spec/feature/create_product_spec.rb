@@ -18,6 +18,7 @@ RSpec.describe 'Create a product', type: :feature do
     
     all('#product_price').first.fill_in  with: @product.price
     all('#product_stock').first.fill_in  with: @product.stock
+    all('#product_category').last.select_option
     
     all('.btn-primary').first.click
     expect(page).to_not have_css('#error_explanation')

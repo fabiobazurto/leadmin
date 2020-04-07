@@ -99,6 +99,8 @@ es:
       title: "Nueva categoría"
     form:
       save: "Grabar"      
+    create:
+      success: "Categoría %{name} creado exitosamente"
     edit:
       title: "Editando categoría: %{name}"
       save: "Actualizar"
@@ -136,7 +138,8 @@ es:
         color: "Color"
         size: "Tamaño"
         price: "Precio"
-        stock: "Unidades"	
+        stock: "Unidades"
+        category: "Categoría"	
     errors:
       models:
         store_product:
