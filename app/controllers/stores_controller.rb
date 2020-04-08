@@ -56,8 +56,9 @@ class StoresController < ApplicationController
   # DELETE /stores/1.json
   def destroy
     @store.destroy
+    flash[:success] =  t(:store_destroyed_success)
     respond_to do |format|
-      format.html { redirect_to stores_url, notice: t(:store_destroyed_success) }
+      format.html { redirect_to stores_url }
       format.json { head :no_content }
     end
   end

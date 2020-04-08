@@ -6,6 +6,7 @@ ruby '2.6.6'
 #CSS
 #gem 'bootstrap', '~> 4.4.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'bootstrap-sass', '~> 3.4.1'
 gem 'will_paginate', '~> 3.1.0'
 gem 'acts-as-taggable-on'

@@ -1,0 +1,5 @@
+<%if @category.errors.any?%>
+alert('No es posible eliminar categoria <%=escape_javascript(@category.name)%> relacionada al producto <%=escape_javascript(@category.products.first.name)%>');
+<%else%>
+$('tr#row-category-<%= @category.id %>').fadeOut('slow');
+<%end%>

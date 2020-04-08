@@ -1,15 +1,5 @@
 <%= form_with(model: product, local: true) do |form| %>
-  <% if product.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(product.errors.count, "error") %> prohibited this product from being saved:</h2>
-
-      <ul>
-      <% product.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+    <%=render 'general/errors', modelo: product%>
 
   <div class="field form-group">
     <%= form.label :name %>
@@ -35,7 +25,9 @@
 
   <div class="field form-group">
       <%= form.label :category_id %>
-      <%= form.collection_select :category_id, @categories,:id,:name, {include_blank: true}, {class: 'form-control'} %>      
+      <%= text_field_tag :q, ((product.category.nil?)?'':product.category.name), autocomplete: :off, class: "form-control search-input", placeholder: t(:type_your_keyword) %>  
+      <%=form.hidden_field :category_id%>
+      <%# form.collection_select :category_id, @categories,:id,:name, {include_blank: true}, {class: 'form-control'} %>      
   </div>
   
   
@@ -43,7 +35,7 @@
       <%= form.label :price %>
       <%= form.text_field :price, class: 'form-control allow_decimal', maxlength: 6 %>
   </div>
-
+  
   <div class="actions">
     <%= form.submit t('.save'), :class=>'btn btn-primary' %>
   </div>

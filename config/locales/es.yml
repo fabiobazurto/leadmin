@@ -42,8 +42,10 @@ es:
   back: "Regresar"
   title: "Asdfasdf: %{name}"
   add: "Agregar"
+  close: "Cerrar"
   available_units: "Unidades disponibles: %{units}"
   error_on_destroy: "Ha ocurrido un error al eliminar %{name}"
+  type_your_keyword: "Ingresa tus keywords"
   colors:
     white: "blanco"
     black: "negro"
@@ -86,6 +88,8 @@ es:
       title: "Editando producto: %{name}"
     create:
       success: "Producto %{name} creado exitosamente"
+    assign:
+      success: "Stock de tiendas ha sido actualizado"
     update:
       success: "Producto %{name} actualizado exitosamente"
     destroy:
@@ -95,6 +99,8 @@ es:
   categories:
     index:
       title: "Categorías"
+    success:
+      success: "Categoría creada exitosamente"      
     new:
       title: "Nueva categoría"
     form:
@@ -104,6 +110,8 @@ es:
     edit:
       title: "Editando categoría: %{name}"
       save: "Actualizar"
+    update:      
+      success: "Categoría %{name} creado exitosamente"
     show:
       title: "Editando categoría: %{name}"
     destroy:
@@ -139,18 +147,52 @@ es:
         size: "Tamaño"
         price: "Precio"
         stock: "Unidades"
-        category: "Categoría"	
+        category: "Categoría"
+      category:
+        name: "Nombre"
+        tag_list: "Keywords"	
     errors:
       models:
+        product:
+          attributes:
+            category:
+              required: " es requerido."
+              blank: " no puede quedar en blanco."
+            name:	      
+              blank: " no puede quedar en blanco."
+            color:
+              blank: " no puede quedar en blanco."
+              invalid: " debe ser valido."
+            size:	      
+              blank: " no puede quedar en blanco."
+              invalid: " debe ser valido"
+            price:	      
+              greater_than: " debe ser mayor de 0."
+            stock:	      
+              greater_than: " debe ser mayor de 0."	      
         store_product:
           attributes:
             product:
               product_stock_zero: "no tiene suficientes unidades para asignar."      
         store:
           attributes:
+            name:
+              required: "es requerido."
+              blank: "no puede estar en blanco."
+            street:
+              required: "es requerido."
+              blank: "no puede estar en blanco."	      
             city:
               required: "es requerida."
               blank: "no puede estar en blanco."
             country:
               required: "es requerida."
-              blank: "no puede estar en blanco."	      	      
+              blank: "no puede estar en blanco."
+            number:
+              required: "es requerida."
+              not_a_number: "no es numérico."	      
+              blank: "no puede estar en blanco."
+            zipcode:
+              required: "es requerida."
+              not_a_number: "no es numérico."	      
+              blank: "no puede estar en blanco."	      	      	      	      

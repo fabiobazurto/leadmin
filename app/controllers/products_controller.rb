@@ -27,7 +27,8 @@ class ProductsController < ApplicationController
           format.html { render :show}
         end
       end
-      format.html { redirect_to product_url(@product, notice: t('.success')) }
+      flash[:success]=t('.success')
+      format.html { redirect_to product_url(@product) }
     end
     
   end
@@ -46,10 +47,11 @@ class ProductsController < ApplicationController
   # POST /products.json
   def create
     @product = Product.new(product_params)
+    @categories = Category.all    
     
     respond_to do |format|
       if @product.save
-        format.html { redirect_to products_url, notice: t(:success,@product.name) }
+        format.html { redirect_to products_url, notice: t('.success',name: @product.name) }
         format.json { render :show, status: :created, location: @product }
       else
         format.html { render :new }
@@ -63,7 +65,7 @@ class ProductsController < ApplicationController
   def update
     respond_to do |format|
       if @product.update(product_params)
-        format.html { redirect_to products_url, notice:  t(:success,@product.name) }
+        format.html { redirect_to products_url, notice:  t('.success',name: @product.name) }
         format.json { render :show, status: :ok, location: @product }
       else
         format.html { render :edit }

@@ -1,0 +1,6 @@
+
+    <tr id="row-category-<%=category.id%>" class="row-category">
+	<td><%= category.name %></td>
+	<td><%= link_to t(:edit), edit_category_path(category), remote: true, data: {toggle: "modal", target:'#myModal'}  %></td>
+	<td><%= link_to t(:destroy), category, method: :delete, remote: true, data: { confirm: t(:are_you_sure, name:category.name) } %></td>
+    </tr>

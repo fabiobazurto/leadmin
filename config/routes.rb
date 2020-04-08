@@ -4,5 +4,9 @@ Rails.application.routes.draw do
     post :assign, on: :member
   end
   resources :stores
+
+  get 'tags/:tag', to: 'categories#index', as: :tag
+  
+  root to: 'stores#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

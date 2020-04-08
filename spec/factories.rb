@@ -35,11 +35,11 @@ FactoryBot.define do
   end
 
   factory :country do
-    name {"Ecuador"} #{ Faker::Address.country } # {"Guayaquil"}{"Ecuador"}
+    name { Faker::Address.country } # {"Guayaquil"}{"Ecuador"}
   end
   
   factory :city do
-    name {"Guayaquil"}# { Faker::Address.city }
+    name { Faker::Address.city }
     country
   end
 

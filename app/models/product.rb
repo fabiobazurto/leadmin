@@ -16,13 +16,13 @@ class Product < ApplicationRecord
   validates :category, presence: true
 
 
-
 private
 
   def check_for_assignments
     if stores.any?
       errors[:base] << "cannot delete submission that has already been paid"
       throw :abort      
-    end
+    end    
   end
+
 end

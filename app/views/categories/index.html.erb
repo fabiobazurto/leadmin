@@ -8,10 +8,10 @@
             </div>
             <div  class="modal-body">
 
-hola		
+
             </div>
             <div class="modal-footer">
-		<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		<button type="button" class="btn btn-default" data-dismiss="modal"><%=t(:close) %></button>
             </div>
 	</div>
 	
@@ -37,14 +37,8 @@ hola
 		</tr>
 	    </thead>
 
-	    <tbody>
-		<% @categories.each do |category| %>
-		    <tr>
-			<td><%= category.name %></td>
-			<td><%= link_to t(:edit), edit_category_path(category), remote: true, data: {toggle: "modal", target:'#myModal'}  %></td>
-			<td><%= link_to t(:destroy), category, method: :delete, data: { confirm: t(:are_you_sure, name:category.name) } %></td>
-		    </tr>
-		<% end %>
+	    <tbody id="categories">
+		<%=render @categories %>
 	    </tbody>
 	</table>
 	<%= will_paginate @categories %>

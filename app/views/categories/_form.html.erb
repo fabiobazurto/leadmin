@@ -1,20 +1,15 @@
-<%= form_with(model: category, local: true) do |form| %>
-  <% if category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
-
-      <ul>
-      <% category.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: category, remote: true) do |form| %>
+  <%= render('errors',  modelo: category ) %>
   <div class="field form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control uppercase', autofocus: true %>
   </div>
+
+  <div class="field">
+      <%= form.label :tag_list %><br />
+      <%= form.text_field :tag_list, value: category.tag_list.join(',') , class: 'form-control', data: { role: "tagsinput"} %>
+  </div>  
+  
   <%= form.submit t('.save'), class: 'btn btn-danger btn-modal'%>
 
 <% end %>

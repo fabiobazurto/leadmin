@@ -7,7 +7,7 @@ RSpec.describe 'Creating a store', type: :feature do
     @store1 = build(:store)
   end
 
-  scenario 'valid params' do
+  scenario 'with valid params' do
     visit new_store_path
     fill_in 'Nombre', with: 'Big Show Store'
     fill_in 'Calle principal', with: 'Storm Avenue'
@@ -17,22 +17,24 @@ RSpec.describe 'Creating a store', type: :feature do
     select 'Guayaquil', from:'Ciudad', match: :first
     click_on 'Grabar'
     expect(page).to have_content('Tienda creada exitosamente')
-    click_on 'Next'
+    #click_on 'Next'
     expect(page).to have_content('Big Show Store')    
     
   end
 
-  scenario 'invalid params' do
+  scenario 'with invalid params' do
     visit new_store_path
     fill_in 'Nombre', with: 'Big Show Store'
     fill_in 'Calle principal', with: 'Storm Avenue'
     fill_in 'Número', with: 'dfdf88'
     fill_in 'Código Postal', with: '34ee66'
-    select 'Ecuador', from: 'País', match: :first
-    select 'Guayaquil', from:'Ciudad', match: :first
-    click_on 'Grabar'
-    expect(page).to have_content('error')
     
+    all('#store_country_id option').last.select_option
+    all('#store_city_id option').last.select_option    
+
+
+    click_on 'Grabar'
+    expect(page).to have_css('#error_explanation')
   end
   
 end
