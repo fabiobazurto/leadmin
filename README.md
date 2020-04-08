@@ -59,6 +59,21 @@ sudo apt-get install libmysqlclient-dev
     ```
     rake db:setup
     ```
+# Database initialization
+
+You can choose between rake commands or mysqldump.
+
+If you choose mysqldump, you can find the database dump into /db folder.
+
+* leadmin_development.sql
+* leadmin_test.sql
+
+For mysqldump option, run this command
+```
+mysqldump -u {YOUR DB USER} -p leadmin_development < db/leadmin_development.sql
+
+mysqldump -u {YOUR DB USER} -p leadmin_test < db/leadmin_test.sql
+```
 
 # Troubleshooting
 
