@@ -49,6 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: leadmin_production
-  username: leadmin
+  database:  <%=ENV["APPDB"]%>
   password: <%= ENV['LEADMIN_DATABASE_PASSWORD'] %>
