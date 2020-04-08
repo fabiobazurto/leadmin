@@ -114,11 +114,3 @@ bundle exec rspec spec/feature/create_store_spec.rb
 
 ```
 
-
-1. In view, include the following html:
-    ```html
-    <div id="calendar"></div>
-    ```
-    Now if you go to that view you should see the FullCalendar.
-
-1. Reference the Using FullCalendar section for details on populating FullCalendar.
