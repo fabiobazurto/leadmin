@@ -47,6 +47,8 @@ en:
   available_units: "Available stock: %{units}"
   error_on_destroy: "An error has occurred while you were deleting %{name}"
   type_your_keyword: "Enter your keywords"
+  general: "General"
+  assign_stores: "Stores stock"  
   will_paginate:
     next_label: "Next"
     previous_label: "Previous"  

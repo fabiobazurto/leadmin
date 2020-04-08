@@ -11,6 +11,7 @@
 		    <th><%=t('activerecord.attributes.product.color')%></th>
 		    <th><%=t('activerecord.attributes.product.size')%></th>
 		    <th><%=t('activerecord.attributes.product.price')%></th>
+		    <th><%=t('activerecord.attributes.product.stock')%></th>		    
 		    <th colspan="3"></th>
 		</tr>
 	    </thead>
@@ -23,6 +24,7 @@
 			    <td><%= t('colors.' + product.color).capitalize %></td>
 			    <td><%= t('sizes.' + product.size).capitalize %></td>
 			    <td><%= product.price %></td>
+			    <td><%= product.stock %></td>			    
 			    <td><%= link_to t(:edit), edit_product_path(product) %></td>
 			    <td><%= link_to t(:destroy), product, method: :delete, data: { confirm: t(:are_you_sure, name: product.name) } %></td>
 			</tr>

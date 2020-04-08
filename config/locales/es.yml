@@ -44,6 +44,8 @@ es:
   title: "Asdfasdf: %{name}"
   add: "Agregar"
   close: "Cerrar"
+  general: "General"
+  assign_stores: "Stock a tiendas"
   available_units: "Unidades disponibles: %{units}"
   error_on_destroy: "Ha ocurrido un error al eliminar %{name}"
   type_your_keyword: "Ingresa tus keywords"
