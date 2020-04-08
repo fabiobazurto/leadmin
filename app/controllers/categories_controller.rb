@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.paginate(page: params[:page])
+    @categories = Category.paginate(page: params[:page], per_page: 10)
     respond_to do |format|
       format.html
       format.json { render :json=> Category.search(params[:term]).map{|cat| {label: cat.name, value: cat.id}}.to_json }
