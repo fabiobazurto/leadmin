@@ -109,11 +109,13 @@
   /* Links */
 
   .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
-    color: #CCC;
+    color: #CCC !important;
     background-color: transparent;
   }
 
-
+.navbar-inverse .navbar-nav > li > a {
+  color: #333 !important;
+}
   /*sucess cateogry*/
 .card      i {
         color: #9ABC66;

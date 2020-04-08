@@ -31,6 +31,7 @@
 
 es:
   new: "Agregar"
+  switch: "Cambiar a "
   edit: "Editar"
   destroy: "Eliminar"
   create: "Crear tienda"
@@ -46,6 +47,9 @@ es:
   available_units: "Unidades disponibles: %{units}"
   error_on_destroy: "Ha ocurrido un error al eliminar %{name}"
   type_your_keyword: "Ingresa tus keywords"
+  will_paginate:
+    next_label: "Siguiente"
+    previous_label: "Anterior"  
   colors:
     white: "blanco"
     black: "negro"

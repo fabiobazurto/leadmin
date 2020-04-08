@@ -22,7 +22,7 @@
 	    <%if !@stores.nil?%>
 		    <% @stores.each do |store| %>
 			<tr class="row-line row-store">
-			    <td><%= store.name %></td>
+			    <td><%= link_to store.name, edit_store_path(store) %></td>
 			    <td><%= store.country.name %></td>
 			    <td><%= store.city.name %></td>
 			    <td><%= store.street %></td>

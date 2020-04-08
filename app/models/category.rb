@@ -27,7 +27,7 @@ class Category < ApplicationRecord
   def check_if_tag_exists
     lista = tag_list.map{|s|  "'#{s}'"}.join(', ') 
     if !lista.empty?
-      if Category.find_by_sql( "SELECT `categories`.*  FROM `categories` INNER JOIN `taggings`      ON `taggable_id` = `categories`.`id` AND  `taggable_type` = 'Category' AND `tag_id` IN (SELECT `tags`.`id` FROM `tags` WHERE LOWER(`tags`.`name`) in (#{lista}) ) and categories.id<>#{id};").count>0
+      if Category.find_by_sql( "SELECT `categories`.*  FROM `categories` INNER JOIN `taggings`      ON `taggable_id` = `categories`.`id` AND  `taggable_type` = 'Category' AND `tag_id` IN (SELECT `tags`.`id` FROM `tags` WHERE LOWER(`tags`.`name`) in (#{lista}) ) and categories.id<>#{id||0};").count>0
         errors.add(:tag_list,:has_been_taken)
       end      
     end

@@ -4,7 +4,7 @@ require 'rails_helper'
 RSpec.describe 'Create a product', type: :feature do
 
   before(:all) do
-
+    @categories = create_list(:category, 10)
     @product = build(:product)
   end
 
@@ -39,8 +39,21 @@ RSpec.describe 'Create a product', type: :feature do
     
     all('#product_price').first.fill_in  with: @product.price
     all('#product_stock').first.set( @product.stock)
-    all('#product_category_id option').last.select_option
+    
+#    all('#product_category_id').first.set(@categories.first.id)
+    fill_autocomplete "q", with: @categories.first.tag_list.to_s, select: @categories.first.name
     
   end
+
+  def fill_autocomplete(field, options = {})
+  fill_in field, :with => options[:with]
+
+  page.execute_script %Q{ $('##{field}').trigger("focus") }
+  page.execute_script %Q{ $('##{field}').trigger("keydown") }
+  selector = "ul.ui-autocomplete a:contains('#{options[:select]}')"
+
+  page.should have_selector selector
+  page.execute_script "$(\"#{selector}\").mouseenter().click()"
+end
   
 end

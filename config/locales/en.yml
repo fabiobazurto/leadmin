@@ -30,7 +30,173 @@
 # available at http://guides.rubyonrails.org/i18n.
 
 en:
-  new: 'New'
+  new: "New"
+  switch: "Switch language"
+  edit: "Edit"
+  destroy: "Delete"
+  create: "Save"
+  are_you_sure: "¿Are you sure deleting %{name}?"
+  store_destroyed_success: "Store was deleted succesfully"
+  store_updated_success: "Store was updated successfully"
+  store_saved_success: "Store was created successfully"
+  no_stores: "There's no stores yet!"
+  back: "Back"
+  title: "sdfasdf: %{name}"
+  add: "Add"
+  close: "Close"
+  available_units: "Available stock: %{units}"
+  error_on_destroy: "An error has occurred while you were deleting %{name}"
+  type_your_keyword: "Enter your keywords"
+  will_paginate:
+    next_label: "Next"
+    previous_label: "Previous"  
+  colors:
+    white: "white"
+    black: "black"
+    green: "green"
+    red: "red"
+    blue: "blue"
+  sizes:
+    small: "small"
+    medium: "medium"
+    large: "large"
   stores:
     index:
       title: "Stores"
+    new:
+      title: "New Stores"
+    form:
+      save: "Save"      
+    edit:
+      title: "Edit store: %{name}"
+      save: "Update"
+    show:
+      title: "Edit store: %{name}"
+    tabs:
+      title: "Edit store: %{name}"
+  products:
+    index:
+      title: "Products"
+    new:
+      title: "New product"
+    form:
+      save: "Save"      
+    edit:
+      title: "Edit product: %{name}"
+      save: "Update"
+    show:
+      title: "Edit product: %{name}"
+    stores:      
+      save: "Update"
+    tabs:
+      title: "Edit product: %{name}"
+    create:
+      success: "Product %{name} was created successfully"
+    assign:
+      success: "Store Stock was updated "
+    update:
+      success: "Product %{name} was updated successfully"
+    destroy:
+      success: "Product %{name} was deleted successfully"
+    no_data:
+      no_data: "There no products yet"
+  categories:
+    index:
+      title: "Categories"
+    success:
+      success: "Category created succesfully"      
+    new:
+      title: "New Category"
+    form:
+      save: "Save"      
+    create:
+      success: "Category %{name} was created succesfully"
+    edit:
+      title: "Edit category: %{name}"
+      save: "Update"
+    update:      
+      success: "Category %{name} was created successfully"
+    show:
+      title: "Edit category: %{name}"
+    destroy:
+      success: "Category %{name} was deleted successfully."      
+  activerecord:
+    models:
+      city:
+        one: "City"
+        other: "Cities"
+      country:
+        one: "Country"
+        other: "Cocuntries"
+      store:
+        one: "Store"
+        other: "Stores"
+      product:
+        one: "Product"
+        other: "Products"
+      category:
+        one: "Category"
+        other: "Categories"		
+    attributes:
+      store:
+        name: "Name"
+        street: "Street"
+        number: "Number"
+        zipcode: "Zip Code"
+        city_id: "City"
+        country_id: "Country"
+      product:
+        name: "Name"
+        color: "Color"
+        size: "Size"
+        price: "Price"
+        stock: "Stock"
+        category: "Category"
+      category:
+        name: "Name"
+        tag_list: "Keywords"	
+    errors:
+      models:
+        product:
+          attributes:
+            category:
+              required: " is required."
+              blank: " can't be blank."
+            name:
+              blank: " can't be blank."	    
+            color:
+              blank: " can't be blank."
+              invalid: "is invalid."
+            size:
+              blank: " can't be blank."	    	    
+              invalid: "is invalid."
+            price:	      
+              greater_than: " must be greater than 0."
+            stock:	      
+              greater_than: "must be greater than 0."	      
+        store_product:
+          attributes:
+            product:
+              product_stock_zero: "doesn't have stock enough to assign."      
+        store:
+          attributes:
+            name:
+              required: "is required."
+              blank: "can't be blank."
+            street:
+              required: "is required."
+              blank: "can't be blank."	      
+            city:
+              required: "is required."
+              blank: "can't be blank."	      
+            country:
+              required: "is required."
+              blank: "can't be blank."	      
+            number:
+              required: "is required."	    
+              not_a_number: "must to be a number"
+              blank: "can't be blank."	      
+            zipcode:
+              required: "is required."	    
+              not_a_number: "must to be a number"	      
+              blank: "can't be blank."	      

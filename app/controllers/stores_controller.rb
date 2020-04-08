@@ -4,7 +4,7 @@ class StoresController < ApplicationController
   # GET /stores
   # GET /stores.json
   def index
-    @stores = Store.paginate(page: params[:page])
+    @stores = Store.paginate(page: params[:page],per_page: 10)
   end
 
   # GET /stores/1

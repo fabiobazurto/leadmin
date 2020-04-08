@@ -10,9 +10,18 @@
     </div>
     <div id="main_mnu" class="sidebar-collapse ">
 	<ul class="nav navbar-nav sidebar-menu">
-	    <li class="<%=isMenuActive("stores")%> "><a href="/stores"><%= t 'activerecord.models.store.other' %></a></li>
-	    <li class="<%=isMenuActive("products")%>"><a href="/products"><%= t 'activerecord.models.product.other' %></a></li>
-	    <li class="<%=isMenuActive("categories")%>"><a href="/categories"><%= t 'activerecord.models.category.other' %></a></li>
+	    <li>	  <%=t(:switch) %>  <% if I18n.locale == I18n.default_locale %>
+		<%= link_to "Ingles", { :locale=>'en' } %>
+
+	    <% else %>
+		<%= link_to "Spanish", { :locale=>'es' } %>
+
+	    <%end%>
+	    </li>
+	    <li class="<%=isMenuActive("stores")%> "><%= link_to t('activerecord.models.store.other'),stores_url %></li>
+	    <li class="<%=isMenuActive("products")%>"><%= link_to t('activerecord.models.product.other'), products_url %></li>
+	    <li class="<%=isMenuActive("categories")%>"><%= link_to t('activerecord.models.category.other'),categories_path %></li>
+	    
 	</ul>
     </div>
 </header>

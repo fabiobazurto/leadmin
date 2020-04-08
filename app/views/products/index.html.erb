@@ -19,7 +19,7 @@
 		<%if !@products.nil?%>		
 		    <% @products.each do |product| %>
 			<tr class="row-line row-product">
-			    <td><%= product.name %></td>
+			    <td><%= link_to product.name, edit_product_path(product) %></td>
 			    <td><%= t('colors.' + product.color).capitalize %></td>
 			    <td><%= t('sizes.' + product.size).capitalize %></td>
 			    <td><%= product.price %></td>
