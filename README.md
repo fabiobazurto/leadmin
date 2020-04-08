@@ -25,86 +25,61 @@ sudo apt-get install libmysqlclient-dev
 ## Installation
 
 1. First, clone the repository
-
-```
-git clone https://github.com/fabiobazurto/leadmin.git
-
-```
-
+    ```bash
+    git clone https://github.com/fabiobazurto/leadmin.git
+    ```
 2. Set your database credencials
+   
+   For development environment, you need to declare this environment variables:  
+   ```
+   # Use this command in linux terminal
 
-   * For development environment, you need to declare this environment variables:
+   export APPUSER={YOUR DATABASE USER such as root or leadmin}
 
-  For Linux, run this commands in your terminal
+   export APPPASSWORD={YOUR DATABASE USER PASSWORD}
 
-```
-
-export APPUSER={YOUR DATABASE USER such as root or leadmin}
-
-export APPPASSWORD={YOUR DATABASE USER PASSWORD}
-
-export APPLOCALHOST={DATABASE HOST IP, use localhost if you are running the webapp in your laptop}
-
-```
-
-   * For production environment, you need to declare LEADMIN_DATABASE_PASSWORD and bind your local IP
-
-```
-
-export LEADMIN_DATABASE_PASSWORD={YOUR PRODUCTION DATABASE PASSWORD }
-
-```
+   export APPLOCALHOST={DATABASE HOST IP, use localhost if you are running the webapp in your laptop}
+   ```
+   For production environment, you need to declare LEADMIN_DATABASE_PASSWORD and bind your local IP
+   ```
+   export LEADMIN_DATABASE_PASSWORD={YOUR PRODUCTION DATABASE PASSWORD }
+   ```
 
 3. Install gems
-
-```
-
-bundle install
-
-```
+    ```
+    bundle install
+    ```
+    
 4. Create development and test databases
-
-```
-
-rake db:create
-
-```
+    ```
+    rake db:create
+    ```
+    
 5. Populate your database
-
-```
-
-rake db:setup
-
-```
+    ```
+    rake db:setup
+    ```
 
 # Troubleshooting
 
 If you have problems with the connection using /tmp/mysql.sock, you need to bind your local mysql socket to /tmp/mysql.sock
 
 1. First, find your mysql.sock location
-
-```
-
-mysqladmin -u root -p variables | grep socket
-
-```
+  ```
+  mysqladmin -u root -p variables | grep socket
+  ```
 
 2. Create a symbolic link to your local mysql.sock in /tmp/mysql.sock
-
-```
-
-ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock
-
-```
+    ```
+    ln -s /var/lib/mysql/mysql.sock /tmp/mysql.sock
+    ```
 
 3. Finally, try again
+    ```
+    rake db:create
+    rake db:setup
+    ```
 
-```
-
-rake db:create
-rake db:setup
-
-```
 # Testing
 
 In order to run test specs you need to run this commands:
@@ -123,3 +98,12 @@ bundle exec rspec spec/feature/assign_product2store_spec.rb
 bundle exec rspec spec/feature/create_store_spec.rb
 
 ```
+
+
+1. In view, include the following html:
+    ```html
+    <div id="calendar"></div>
+    ```
+    Now if you go to that view you should see the FullCalendar.
+
+1. Reference the Using FullCalendar section for details on populating FullCalendar.
