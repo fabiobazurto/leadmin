@@ -5,6 +5,13 @@ $(document).ready ->
     return
     
 $(document).on "turbolinks:load", ->
+
+  width = $(window).width()
+  if width <= 480
+    $('#main_mnu').addClass 'collapse'
+  else
+    $('#main_mnu').removeClass 'collapse'
+  
   $('input[type=text]').keyup ->
     @value = @value.toUpperCase()
     return

@@ -1,0 +1,18 @@
+<header class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-header">
+	<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+	    <span class="sr-only">Toggle</span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	    <span class="icon-bar"></span>
+	</button>
+	<a href="<%= root_url %>" class="navbar-brand">JustClick</a>
+    </div>
+    <div id="main_mnu" class="sidebar-collapse ">
+	<ul class="nav navbar-nav sidebar-menu">
+	    <li class="<%=isMenuActive("stores")%> "><a href="/stores"><%= t 'activerecord.models.store.other' %></a></li>
+	    <li class="<%=isMenuActive("products")%>"><a href="/products"><%= t 'activerecord.models.product.other' %></a></li>
+	    <li class="<%=isMenuActive("categories")%>"><a href="/categories"><%= t 'activerecord.models.category.other' %></a></li>
+	</ul>
+    </div>
+</header>

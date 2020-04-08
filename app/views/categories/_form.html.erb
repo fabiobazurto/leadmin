@@ -1,5 +1,5 @@
 <%= form_with(model: category, remote: true) do |form| %>
-  <%= render('errors',  modelo: category ) %>
+  <%= render('general/errors',  modelo: category ) %>
   <div class="field form-group">
       <%= form.label :name %>
       <%= form.text_field :name, class: 'form-control uppercase', autofocus: true %>
