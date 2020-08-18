@@ -12,7 +12,7 @@ gem 'will_paginate', '~> 3.1.0'
 gem 'acts-as-taggable-on'
 gem 'faker'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.4', '>= 5.2.4.2'
+gem 'rails', '~> 5.2.4', '>= 5.2.4.3'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.4.4', '< 0.6.0'
 # Use Puma as the app server
@@ -28,6 +28,10 @@ gem 'uglifier', '>= 1.3.0'
 
 #Fixes Github
 gem "rack", ">= 2.2.3"
+
+
+gem "activesupport", ">= 5.2.4.3"
+
 
 
 
