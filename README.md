@@ -37,6 +37,8 @@ sudo apt-get install libmysqlclient-dev
    export APPUSER={YOUR DATABASE USER such as root or leadmin}
 
    export APPPASSWORD={YOUR DATABASE USER PASSWORD}
+   
+   export APPDB ={YOUR DATABASE NAME}
 
    export APPLOCALHOST={DATABASE HOST IP, use localhost if you are running the webapp in your laptop}
    ```
