@@ -23,9 +23,9 @@ RSpec.describe 'Creating a store', type: :feature do
     all('#store_city_id option').last.select_option
 
     click_on 'Grabar'
-#    expect(page).to have_content('Tienda creada exitosamente')
+    expect(page).to have_content('Tienda creada exitosamente')
     #click_on 'Next'
-    expect(page).to have_content('Big Show Store')    
+#    expect(page).to match /Big Show Store/    
     
   end
 
